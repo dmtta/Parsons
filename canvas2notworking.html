@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+
+<body>
+  <center>
+
+    <!-- MY CANVAS HAS UNDEFINED ATTRIBUTES WHICH ARE WIDTH AND HEIGHT I DEFINED THEM LATER -->
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+  </center>
+
+<!-- MY JAVASCRIPT -->
+  <script type="text/javascript">
+  
+  var canvas = document.getElementById('canvas');
+  var context = canvas.getContext('2d');
+  var stars = 200;
+  var x = new Array();
+  var y = new Array();
+  var starSpeed = new Array();
+
+for (var i = 0; i < stars; i++){
+  x[i] = Math.floor(Math.random()*500); 
+  y[i] = Math.floor(Math.random()*500);
+  starSpeed[i] = Math.floor(Math.random()*10);
+}
+
+setInterval(draw, 1000/60); 
+
+function draw(){
+
+  context.rect(0, 0, 500, 500);
+  context.fillStyle ="black";
+  context.fill();
+
+for(var i=0; i < stars; i++){
+  context.rect(x[i], y[i], 5, 5);
+  context.fillStyle = 'white';
+  context.fill;
+}
+
+for (var i=0;i<stars;i++) {
+    y[i]+= starSpeed[i];
+    if (y[i] > context.height) {
+      y[i] = 0;
+    } 
+
+}
+}
+</script>
+</body>
+
+</html>
