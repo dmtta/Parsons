@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+	<div id="breakfast">
+	</div>
+
+	<div id="lunch">
+	</div>
+
+	<div id="dinner">
+	</div>
+	
+	<script type="text/javascript">
+	
+	var meals = [
+	{ "breakfast" : {"First":"Yoghurt" , "Second":"Eggs"} }, 
+	{ "lunch" : {"First":"Soup" , "Second":"Sandwich"} }, 
+	{ "dinner" : {"First":"Rice" , "Second": "Ice Cream"} }
+	];
+
+	document.getElementById("breakfast").innerHTML="My name is Daniel <br><br> My breakfast today was " + meals[0].breakfast.First + " and " + meals[0].breakfast.Second;
+
+	document.getElementById("lunch").innerHTML="My lunch was " + meals[1].lunch.First + " and " + meals[1].lunch.Second;
+
+	document.getElementById("dinner").innerHTML="My breakfast was " + meals[2].dinner.First + " and " + meals[2].dinner.Second;
+
+	</script>
+</body>
+</html>
