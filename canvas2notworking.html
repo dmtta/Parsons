@@ -23,23 +23,26 @@
   var starSpeed = new Array();
 
 for (var i = 0; i < stars; i++){
-  x[i] = Math.floor(Math.random()*500); 
-  y[i] = Math.floor(Math.random()*500);
-  starSpeed[i] = Math.floor(Math.random()*10);
+  x[i] = Math.floor((Math.random()*500)+1); 
+  y[i] = Math.floor((Math.random()*500)+1);
+  starSpeed[i] = Math.floor((Math.random()*10)+1);
+
 }
 
 setInterval(draw, 1000/60); 
 
+
 function draw(){
 
-  context.rect(0, 0, 500, 500);
-  context.fillStyle ="black";
+  context.clearRect(0, 0, 500, 500);
+  context.fillStyle ="red";
   context.fill();
 
 for(var i=0; i < stars; i++){
   context.rect(x[i], y[i], 5, 5);
   context.fillStyle = 'white';
   context.fill;
+   console.log(x[i]);
 }
 
 for (var i=0;i<stars;i++) {
