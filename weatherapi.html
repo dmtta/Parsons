@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+<font face="helvetica">
+<h4> This website is calling data from a weather API and displaying different graphical bars for each location. MFADT. DMTTA</h2>
+</font>
+<center>
+    <!-- MY CANVAS HAS UNDEFINED ATTRIBUTES WHICH ARE WIDTH AND HEIGHT I DEFINED THEM LATER -->
+    <canvas id="canvas" width="2000" height="560"></canvas>
+
+ </center>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+
+
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  var position = new Object();
+  position.x = 50;
+  position.y = canvas.height-20;
+  objWidth = 100;
+
+  
+
+		$(document).ready(function(){
+			var api_key = 'd792c546489fc8ef';
+		
+			var api_obj = {
+
+					state:[ 'Canada', 'Mexico', 'France', 'Colombia', 'Argentina', 'NY','Spain','Greenland','Ireland','Honduras','Chile','Peru','Germany','China','Israel'],
+					city: [ 'Vancouver', 'Mexico_City', 'Paris','Bogota', 'Buenos_Aires','New_York','Toledo','Nord_Aws','Dublin','Tegucigalpa','Santiago','Lima','Berlin','Beijing','Jerusalem']
+
+			};
+
+			for(var i = 0; i < api_obj.state.length; i++){
+
+				var url = 'http://api.wunderground.com/api/'+api_key+'/conditions/q/'+api_obj.state[i]+'/'+api_obj.city[i]+'.json?callback=?';
+
+				//console.log(url);
+
+				$.getJSON(url,function(json){
+
+					var data = json.current_observation; //create shortcut to data
+					var temp = data.temp_f;
+					var city = data.display_location.city;
+					var country = data.display_location.country;
+
+ctx.fillStyle='rgba(0,0,0,.5)';
+ctx.fillRect(position.x,position.y-15,objWidth-5,-temp*5);
+
+ctx.fillStyle='rgba(0,0,0,1)';
+ctx.font="bold 12px Helvetica";
+ctx.fillText(country,position.x,position.y);
+ctx.fillText(city,position.x,position.y+13);
+position.x += objWidth;
+ctx.font="15px Helvetica";
+
+ctx.beginPath();
+      ctx.moveTo(0,position.y-15);
+      ctx.lineTo(canvas.width,position.y-15);
+      ctx.strokeStyle="rgb(200,200,200)";
+    
+      ctx.stroke();
+
+ctx.fillText("0 F",10,position.y-20);
+
+ctx.moveTo(0,position.y-65);
+      ctx.lineTo(canvas.width,position.y-65);
+      ctx.strokeStyle="black";
+       ctx.setLineDash([5,3]);
+      ctx.stroke();
+
+ctx.fillText("10 F",10,position.y-70);
+
+ctx.moveTo(0,position.y-115);
+      ctx.lineTo(canvas.width,position.y-115);
+      ctx.strokeStyle="rgba(200,200,200,.2)";
+      ctx.stroke();
+
+ctx.fillText("20 F",10,position.y-120);
+
+ctx.moveTo(0,position.y-165);
+      ctx.lineTo(canvas.width,position.y-165);
+      ctx.stroke();
+
+ctx.fillText("30 F",10,position.y-170);
+
+ctx.moveTo(0,position.y-215);
+      ctx.lineTo(canvas.width,position.y-215);
+      ctx.stroke();
+
+ctx.fillText("40 F",10,position.y-220);
+
+ctx.moveTo(0,position.y-265);
+      ctx.lineTo(canvas.width,position.y-265);
+      ctx.stroke();
+
+ctx.fillText("50 F",10,position.y-270);
+
+ctx.moveTo(0,position.y-315);
+      ctx.lineTo(canvas.width,position.y-315);
+      ctx.stroke();
+
+ctx.fillText("60 F",10,position.y-320);
+
+ctx.moveTo(0,position.y-365);
+      ctx.lineTo(canvas.width,position.y-365);
+      ctx.stroke();
+
+ctx.fillText("70 F",10,position.y-370);
+
+ctx.moveTo(0,position.y-415);
+      ctx.lineTo(canvas.width,position.y-415);
+      ctx.stroke();
+
+ctx.fillText("80 F",10,position.y-420);
+
+ctx.moveTo(0,position.y-465);
+      ctx.lineTo(canvas.width,position.y-465);
+      ctx.stroke();
+
+ctx.fillText("90 F",10,position.y-470);
+
+ctx.moveTo(0,position.y-515);
+      ctx.lineTo(canvas.width,position.y-515);
+      ctx.stroke();
+
+ctx.fillText("100 F",10,position.y-520);
+
+
+
+					
+
+				});
+			}
+		});
+
+	</script>
+</body>
+</html>
