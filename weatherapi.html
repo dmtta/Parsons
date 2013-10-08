@@ -28,7 +28,7 @@
   
 
 		$(document).ready(function(){
-			var api_key = 'd792c546489fc8ef';
+			var api_key = 'c8e2b72154428987';
 		
 			var api_obj = {
 
@@ -37,7 +37,8 @@
 
 			};
 
-			for(var i = 0; i < api_obj.state.length; i++){
+
+			setInterval(function apis(){for(var i = 0; i < api_obj.state.length; i++){
 
 				var url = 'http://api.wunderground.com/api/'+api_key+'/conditions/q/'+api_obj.state[i]+'/'+api_obj.city[i]+'.json?callback=?';
 
@@ -50,94 +51,91 @@
 					var city = data.display_location.city;
 					var country = data.display_location.country;
 
-ctx.fillStyle='rgba(0,0,0,.5)';
-ctx.fillRect(position.x,position.y-15,objWidth-5,-temp*5);
+          ctx.fillStyle='rgba(0,0,0,.5)';
+          ctx.fillRect(position.x,position.y-15,objWidth-5,-temp*5);
 
-ctx.fillStyle='rgba(0,0,0,1)';
-ctx.font="bold 12px Helvetica";
-ctx.fillText(country,position.x,position.y);
-ctx.fillText(city,position.x,position.y+13);
-position.x += objWidth;
-ctx.font="15px Helvetica";
+          ctx.fillStyle='rgba(0,0,0,1)';
+          ctx.font="bold 12px Helvetica";
+          ctx.fillText(country,position.x,position.y);
+          ctx.fillText(city,position.x,position.y+13);
+          position.x += objWidth;
+          ctx.font="15px Helvetica";
 
-ctx.beginPath();
-      ctx.moveTo(0,position.y-15);
-      ctx.lineTo(canvas.width,position.y-15);
-      ctx.strokeStyle="rgb(200,200,200)";
-    
-      ctx.stroke();
+          ctx.beginPath();
+                ctx.moveTo(0,position.y-15);
+                ctx.lineTo(canvas.width,position.y-15);
+                ctx.strokeStyle="rgb(200,200,200)";
+              
+                ctx.stroke();
 
-ctx.fillText("0 F",10,position.y-20);
+          ctx.fillText("0 F",10,position.y-20);
 
-ctx.moveTo(0,position.y-65);
-      ctx.lineTo(canvas.width,position.y-65);
-      ctx.strokeStyle="black";
-       ctx.setLineDash([5,3]);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-65);
+                ctx.lineTo(canvas.width,position.y-65);
+                ctx.strokeStyle="black";
+                 ctx.setLineDash([5,3]);
+                ctx.stroke();
 
-ctx.fillText("10 F",10,position.y-70);
+          ctx.fillText("10 F",10,position.y-70);
 
-ctx.moveTo(0,position.y-115);
-      ctx.lineTo(canvas.width,position.y-115);
-      ctx.strokeStyle="rgba(200,200,200,.2)";
-      ctx.stroke();
+          ctx.moveTo(0,position.y-115);
+                ctx.lineTo(canvas.width,position.y-115);
+                ctx.strokeStyle="rgba(200,200,200,.2)";
+                ctx.stroke();
 
-ctx.fillText("20 F",10,position.y-120);
+          ctx.fillText("20 F",10,position.y-120);
 
-ctx.moveTo(0,position.y-165);
-      ctx.lineTo(canvas.width,position.y-165);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-165);
+                ctx.lineTo(canvas.width,position.y-165);
+                ctx.stroke();
 
-ctx.fillText("30 F",10,position.y-170);
+          ctx.fillText("30 F",10,position.y-170);
 
-ctx.moveTo(0,position.y-215);
-      ctx.lineTo(canvas.width,position.y-215);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-215);
+                ctx.lineTo(canvas.width,position.y-215);
+                ctx.stroke();
 
-ctx.fillText("40 F",10,position.y-220);
+          ctx.fillText("40 F",10,position.y-220);
 
-ctx.moveTo(0,position.y-265);
-      ctx.lineTo(canvas.width,position.y-265);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-265);
+                ctx.lineTo(canvas.width,position.y-265);
+                ctx.stroke();
 
-ctx.fillText("50 F",10,position.y-270);
+          ctx.fillText("50 F",10,position.y-270);
 
-ctx.moveTo(0,position.y-315);
-      ctx.lineTo(canvas.width,position.y-315);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-315);
+                ctx.lineTo(canvas.width,position.y-315);
+                ctx.stroke();
 
-ctx.fillText("60 F",10,position.y-320);
+          ctx.fillText("60 F",10,position.y-320);
 
-ctx.moveTo(0,position.y-365);
-      ctx.lineTo(canvas.width,position.y-365);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-365);
+                ctx.lineTo(canvas.width,position.y-365);
+                ctx.stroke();
 
-ctx.fillText("70 F",10,position.y-370);
+          ctx.fillText("70 F",10,position.y-370);
 
-ctx.moveTo(0,position.y-415);
-      ctx.lineTo(canvas.width,position.y-415);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-415);
+                ctx.lineTo(canvas.width,position.y-415);
+                ctx.stroke();
 
-ctx.fillText("80 F",10,position.y-420);
+          ctx.fillText("80 F",10,position.y-420);
 
-ctx.moveTo(0,position.y-465);
-      ctx.lineTo(canvas.width,position.y-465);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-465);
+                ctx.lineTo(canvas.width,position.y-465);
+                ctx.stroke();
 
-ctx.fillText("90 F",10,position.y-470);
+          ctx.fillText("90 F",10,position.y-470);
 
-ctx.moveTo(0,position.y-515);
-      ctx.lineTo(canvas.width,position.y-515);
-      ctx.stroke();
+          ctx.moveTo(0,position.y-515);
+                ctx.lineTo(canvas.width,position.y-515);
+                ctx.stroke();
 
-ctx.fillText("100 F",10,position.y-520);
-
-
-
-					
+          ctx.fillText("100 F",10,position.y-520);
 
 				});
 			}
+    }(),60000);
 		});
 
 	</script>
